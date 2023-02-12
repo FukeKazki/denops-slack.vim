@@ -3,10 +3,6 @@ import { getBuildOption } from "./helper.ts";
 
 export async function main(denops: Denops): Promise<void> {
   denops.dispatcher = {
-    async echo(text: unknown): Promise<unknown> {
-      ensureString(text);
-      return await Promise.resolve(text);
-    },
     // slackに投稿する
     async post(text: unknown): Promise<unknown> {
       const option = await getBuildOption(denops);
@@ -21,10 +17,6 @@ export async function main(denops: Denops): Promise<void> {
     },
   };
 
-  await execute(
-    denops,
-    `command! -nargs=1 HelloWorldEcho echomsg denops#request('${denops.name}', 'echo', [<q-args>])`,
-  );
   await execute(
     denops,
     `command! -nargs=1 Slack echomsg denops#request('${denops.name}', 'post', [<q-args>])`,
