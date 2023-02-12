@@ -19,3 +19,25 @@ export const getBuildOption = async (denops: Denops) => {
     channel,
   };
 };
+
+export const getMessage = async (
+  denops: Denops,
+  start: number,
+  end: number,
+  text: string,
+) => {
+  if (text) {
+    return {
+      message: text,
+      isPlane: true,
+    };
+  }
+  const message: string[] = [];
+  for (const m of (await denops.call("getline", start, end)) as string[]) {
+    message.push(m);
+  }
+  return {
+    message: message.join("\n"),
+    isPlane: false,
+  };
+};
