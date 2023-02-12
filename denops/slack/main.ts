@@ -18,6 +18,6 @@ export async function main(denops: Denops): Promise<void> {
 
   await execute(
     denops,
-    `command! -nargs=1 Slack echomsg denops#request('${denops.name}', 'post', [<q-args>])`,
+    `command! -nargs=1 Slack call denops#request('${denops.name}', 'post', [<q-args>])`,
   );
 }
