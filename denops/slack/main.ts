@@ -7,7 +7,6 @@ export async function main(denops: Denops): Promise<void> {
     async post(text: unknown): Promise<unknown> {
       const option = await getBuildOption(denops);
       const client = SlackAPI(option.token);
-      console.log(option);
       ensureString(text);
       const res = await client.chat.postMessage({
         text,
