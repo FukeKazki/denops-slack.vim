@@ -57,6 +57,6 @@ export async function main(denops: Denops): Promise<void> {
   // q-args: 良い感じにエスケープして文字を受け取る
   await execute(
     denops,
-    `command! -range -nargs=? SlackDev call denops#request('${denops.name}', 'post', [<line1>, <line2>, <q-args>])`,
+    `command! -range -nargs=? Slack call denops#request('${denops.name}', 'post', [<line1>, <line2>, <q-args>])`,
   );
 }
