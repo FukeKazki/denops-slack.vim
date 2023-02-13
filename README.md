@@ -3,6 +3,8 @@ Slackに投稿するVim/Neovimプラグイン。
 
 ## Requirements
 - [vim-denops/denops.vim: 🐜 An ecosystem of Vim/Neovim which allows developers to write cross-platform plugins in Deno](https://github.com/vim-denops/denops.vim)
+- BotのAPI TOKENを取得してください
+- Botにchat:write権限を与えてください
 
 ## Usage
 
