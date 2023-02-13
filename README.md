@@ -33,5 +33,9 @@ return {
 ```
 shellの環境変数に定義して`os.getenv("SLACK_API_TOKEN")`するのがおすすめです。
 
+## Not Worked
+`g:denops#debug = 1`にして`console.log`を確認してください。
+
+## Gif
 ![denops-slack](https://user-images.githubusercontent.com/40536586/218308294-186b0d78-c5fb-4a59-8f67-42d1cbba03ba.gif)
 
