@@ -38,13 +38,15 @@ export async function main(denops: Denops): Promise<void> {
 
       const option = await getBuildOption(denops);
       const client = SlackAPI(option.token);
+      console.log(option);
 
       // ファイルのテキストの場合はバッククォートで囲む
-      const res = await client.chat.postMessage({
+      await client.chat.postMessage({
         text: isPlane ? message : `\`\`\`${message}\`\`\``,
         channel: option.channel,
-      });
-      return res.ok;
+        "as_user": true,
+      }).catch((err) => console.log(err));
+      return true;
     },
   };
 
@@ -54,6 +56,6 @@ export async function main(denops: Denops): Promise<void> {
   // q-args: 良い感じにエスケープして文字を受け取る
   await execute(
     denops,
-    `command! -range -nargs=? Slack call denops#request('${denops.name}', 'post', [<line1>, <line2>, <q-args>])`,
+    `command! -range -nargs=? SlackDev call denops#request('${denops.name}', 'post', [<line1>, <line2>, <q-args>])`,
   );
 }
