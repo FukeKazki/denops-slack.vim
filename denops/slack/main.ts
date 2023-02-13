@@ -41,11 +41,12 @@ export async function main(denops: Denops): Promise<void> {
       console.log(option);
 
       // ファイルのテキストの場合はバッククォートで囲む
-      await client.chat.postMessage({
+      const res = await client.chat.postMessage({
         text: isPlane ? message : `\`\`\`${message}\`\`\``,
         channel: option.channel,
         "as_user": true,
       }).catch((err) => console.log(err));
+      console.log(res);
       return true;
     },
   };
